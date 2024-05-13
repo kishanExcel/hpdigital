@@ -71,7 +71,7 @@ export default function Page() {
                     <Image alt="google" width={20} height={20} src={Apple} />
                   </button>
                   <p className="text-sm leading-relaxed text-[#606060]">
-                    Don't have an account?{" "}
+                    Don`&apos;t have an account?{" "}
                     <Link href="/signup" className="font-bold text-[#631363]">
                       Sign up
                     </Link>
