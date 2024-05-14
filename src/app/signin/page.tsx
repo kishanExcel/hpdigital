@@ -15,7 +15,9 @@ export default function Page() {
         <div className="container flex flex-col mx-auto rounded-lg pt-6 md:pt-1 my-1">
           <div className="flex justify-center w-full h-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
             <div className="flex items-center justify-center w-full lg:p-12">
-              <div className="flex items-center w-[80%] md:w-[33%]">
+              <form
+                action={""}
+                className="flex items-center w-[80%] md:w-[33%]">
                 <div className="flex flex-col w-full h-full pb-6 text-center rounded-3xl">
                   <h3 className="mb-3 text-4xl font-semibold text-dark-grey-900  text-start text-[#631363] ">
                     Login
@@ -77,7 +79,7 @@ export default function Page() {
                     </Link>
                   </p>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
