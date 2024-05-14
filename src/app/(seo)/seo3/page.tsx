@@ -28,23 +28,23 @@ export default function Page() {
 
   return (
     <div className="mb-6">
-      <div className="bg-[#E0E0E0] mx-6 rounded-md border mt-4">
+      <div className=" mx-6 rounded-md mt-4">
         <div className="text-2xl w-full rounded-md  font-bold p-2 bg-[#631363] text-white ">
           Performance Overview
         </div>
         <div className="px-4 flex flex-col gap-2 py-2">
           <div>
-            <div className="text-base w-full rounded-md  border-2  bg-white p-2  text-[#6D6D6D] ">
+            <div className="text-base w-full rounded-md  border-2  bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
               <div className="flex justify-between">
                 <div>All Keywords Avg. </div>
                 <div>
                   <ButtonGroup variant="text" aria-label="Basic button group">
                     <Button
                       variant="outline"
-                      className="border-r-0 bg-[#631363] text-white">
+                      className="border-r-0 bg-[#631363] h-8 text-white">
                       11.6
                     </Button>
-                    <Button className="bg-[#E0E0E0] " variant="outline">
+                    <Button className="bg-[#E0E0E0] h-8" variant="outline">
                       1.5
                     </Button>
                   </ButtonGroup>
@@ -52,31 +52,37 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="text-base w-full rounded-md  border-2  bg-white p-2  text-[#6D6D6D] ">
+          <div className="text-base w-full rounded-md  border-2  bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
             <div className="flex justify-between">
               <div> Total Keywords</div>
               <div>
-                <Button className="bg-[#631363] text-white" variant="outline">
+                <Button
+                  className="bg-[#631363] text-white h-8"
+                  variant="outline">
                   5
                 </Button>
               </div>
             </div>
           </div>
-          <div className="text-base w-full rounded-md  border-2  bg-white p-2  text-[#6D6D6D] ">
+          <div className="text-base w-full rounded-md  border-2  bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
             <div className="flex justify-between">
               <div> Keywords Up</div>
               <div>
-                <Button className="bg-[#631363] text-white" variant="outline">
+                <Button
+                  className="bg-[#631363] text-white h-8"
+                  variant="outline">
                   4
                 </Button>
               </div>
             </div>
           </div>
-          <div className="text-base w-full rounded-md  border-2  bg-white p-2  text-[#6D6D6D] ">
+          <div className="text-base w-full rounded-md  border-2  bg-[#F4F4F4] p-2 font-semibold text-[#6D6D6D] ">
             <div className="flex justify-between">
               <div> Keywords Down</div>
               <div>
-                <Button className="bg-[#631363] text-white" variant="outline">
+                <Button
+                  className="bg-[#631363] h-8 text-white"
+                  variant="outline">
                   1
                 </Button>
               </div>
@@ -90,7 +96,7 @@ export default function Page() {
             <Stepper activeStep={1} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
-                  <StepLabel sx={{ fontSize: "0.25rem" }}>{label}</StepLabel>
+                  <StepLabel>{label}</StepLabel>
                 </Step>
               ))}
             </Stepper>
@@ -103,7 +109,7 @@ export default function Page() {
               Average Map Rank{" "}
             </div>
           </div>
-          <div className="bg-[#E0E0E0] font-bold  w-full h-20 border-2 text-3xl text-[#6D6D6D] text-center border-[#6D6D6D] rounded-md">
+          <div className="np,m font-bold  w-full h-20 border-2 text-3xl text-[#6D6D6D] text-center border-[#6D6D6D] rounded-md">
             2{" "}
             <div className="text-[#6D6D6D] text-center text-base font-semibold">
               Change
@@ -124,8 +130,8 @@ export default function Page() {
             <BorderLinearProgress variant="determinate" value={80} />
           </div>
         </div>
-        <div className="h-64 p-4 mx-4 rounded-md bg-white"></div>
-        <div className="font-semibold text-[#6D6D6D] text-xl p-4">
+        <div className="h-64 p-4 mx-2 rounded-md bg-white"></div>
+        <div className="font-semibold text-[#6D6D6D] text-xl p-2">
           Overall Top Ranking Competitors for{" "}
           <span className="text-[#631363] ">roof pairs</span>
           <p className="text-base font-base">

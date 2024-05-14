@@ -15,12 +15,12 @@ export default function Page() {
           <div className="absolute left-14 top-[13px]">
             {/* <Search size={18} /> */}
           </div>
-          <div className="flex flex-col w-full px-4  justify-center">
+          <div className="flex flex-col w-full md:w-[40%]  px-4  justify-center">
             <div className="text-[#6D6D6D] pb-2 font-semibold">
               Target Keyword
             </div>
-            <div className="flex items-center gap-2">
-              <Input className="rounded-full border-2" type="search" />
+            <div className="flex w-full items-center justify-center gap-2">
+              <Input className="rounded-full border-2 w-full " type="search" />
               <Button
                 variant="outline"
                 className="bg-[#40F440] rounded-xl  w-26 h-10">
