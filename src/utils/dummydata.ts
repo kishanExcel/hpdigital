@@ -1,0 +1,73 @@
+export const employees = [
+    {
+        name: "Stanley",
+        totalRating: 5,
+        averageRating: 0,
+        tasksRequested: 0,
+        tasksCompleted: 10,
+    },
+    {
+        name: "Jim",
+        totalRating: 5,
+        averageRating: 5,
+        tasksRequested: 0,
+        tasksCompleted: 0,
+    },
+    {
+        name: "Anna",
+        totalRating: 5,
+        averageRating: 4,
+        tasksRequested: 0,
+        tasksCompleted: 0,
+    },
+    {
+        name: "Mike",
+        totalRating: 5,
+        averageRating: 0,
+        tasksRequested: 0,
+        tasksCompleted: 8,
+    },
+    {
+        name: "Sarah",
+        totalRating: 5,
+        averageRating: 4,
+        tasksRequested: 0,
+        tasksCompleted: 4,
+    },
+    {
+        name: "Greta",
+        totalRating: 5,
+        averageRating: 5,
+        tasksRequested: 0,
+        tasksCompleted: 4,
+    },
+    {
+        name: "Patrick",
+        totalRating: 5,
+        averageRating: 5,
+        tasksRequested: 0,
+        tasksCompleted: 15,
+    },
+    {
+        name: "Dolores",
+        totalRating: 5,
+        averageRating: 3,
+        tasksRequested: 0,
+        tasksCompleted: 2,
+    },
+    {
+        name: "Jane",
+        totalRating: 5,
+        averageRating: 3,
+        tasksRequested: 0,
+        tasksCompleted: 2,
+    },
+    {
+        name: "Ruby",
+        totalRating: 5,
+        averageRating: 0,
+        tasksRequested: 0,
+        tasksCompleted: 0,
+    },
+];
+
