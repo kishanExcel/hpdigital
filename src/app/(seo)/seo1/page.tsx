@@ -51,7 +51,7 @@ export default function Page() {
           <SelectTrigger className="w-[60px] rounded-full border">
             <SelectValue placeholder="10" />
           </SelectTrigger>
-          <SelectContent className="">
+          <SelectContent className="bg-white z-50">
             <SelectItem value="light">10</SelectItem>
             <SelectItem value="dark">20</SelectItem>
             <SelectItem value="system">30</SelectItem>
