@@ -34,7 +34,7 @@ export default function Page() {
             <div className="h-20 w-full bg-gradient-to-r from-[#CF232A]  via-[#EC1C24] to-[#F37E5F]  rounded-xl border flex flex-col justify-evenly">
               <div className="font-semibold text-2xl text-center">97</div>
               <div className="text-center font-semibold rounded-full mt-5 mb-1  border border-inherit ">
-                Doesn't exist
+                Doesn&apos;t exist
               </div>
             </div>{" "}
           </div>

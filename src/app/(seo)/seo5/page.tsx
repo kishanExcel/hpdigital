@@ -32,7 +32,7 @@ export default function Page() {
                 {" "}
                 <div className="bg-[#EC1C24] rounded-full border h-3 w-3"></div>
                 <div className="text-[#6D6D6D] font-semibold text-lg text-nowrap">
-                  Doesn't exist
+                  Doesn&apos;t exist
                 </div>
               </div>
             </div>
