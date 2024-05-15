@@ -4,33 +4,35 @@ import { styled } from "@mui/material/styles";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import { Box, Typography } from "@mui/material";
 
 type BorderLinearProgressProps = {
   value: number;
+  color?: string;
 };
 
 export const BorderLinearProgress = styled(
-  ({ value, ...rest }: BorderLinearProgressProps) => (
+  ({ value, color, ...rest }: BorderLinearProgressProps) => (
     <LinearProgress variant="determinate" value={value} {...rest} />
   )
-)(({ theme, value }) => {
+)(({ theme, value, color }) => {
   let barColorPrimary;
-  let barColorSecondary;
 
-  if (value < 40) {
-    barColorPrimary = "#00914C";
-    // barColorSecondary = "#FAAC18";
-  } else if (value >= 40 && value < 60) {
-    barColorPrimary = "#FAAC18";
-    // barColorSecondary = "#00914C";
-  } else if (value >= 60) {
-    barColorPrimary = "#CF232A";
-    // barColorSecondary = "#00914C";
+  if (color) {
+    barColorPrimary = color;
+  } else {
+    if (value < 40) {
+      barColorPrimary = "#00914C";
+    } else if (value >= 40 && value < 60) {
+      barColorPrimary = "#FAAC18";
+    } else if (value >= 60) {
+      barColorPrimary = "#CF232A";
+    }
   }
 
   return {
     height: 16,
-    borderRadius: 5,
+    borderRadius: 8,
     [`&.${linearProgressClasses.colorPrimary}`]: {
       backgroundColor:
         theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
@@ -38,16 +40,6 @@ export const BorderLinearProgress = styled(
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 5,
       backgroundColor: barColorPrimary,
-    },
-    "&::after": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: "calc(100% - " + (value / 100) * 100 + "%)",
-      backgroundColor: barColorSecondary,
-      borderRadius: 5,
     },
   };
 });

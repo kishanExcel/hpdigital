@@ -5,3 +5,11 @@
 .css-1hv8oq8-MuiStepLabel-label {
   font-size: 0.475rem;
 }
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #faac18;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+  color: #cf232a;
+}

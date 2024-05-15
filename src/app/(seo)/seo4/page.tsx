@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Chip from "@mui/material/Chip";
 
 export default function Page() {
   return (
@@ -27,6 +28,10 @@ export default function Page() {
                 {" "}
                 Add
               </Button>
+            </div>
+            <div className="py-2 flex gap-2">
+              <Chip label="Plumbing" />
+              <Chip label="Plumbing near me" />
             </div>
           </div>
         </div>
