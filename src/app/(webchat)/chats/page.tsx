@@ -13,6 +13,10 @@ import { Button } from "@/components/ui/button";
 export default function Page() {
   const [value, setValue] = useState();
 
+  function handeleChange(event: any) {
+    setValue(event.target.value);
+  }
+
   return (
     <div className="bg-[#F8F8F8] h-screen flex justify-center">
       <div className="w-full max-w-[1280px]">
@@ -53,7 +57,7 @@ export default function Page() {
               defaultCountry="US"
               placeholder="Enter phone number"
               value={value}
-              onChange={setValue}
+              onChange={handeleChange}
               inputComponent={PhoneInputComp}
             />
             <TextField id="standard-basic" label="Message" variant="standard" />
