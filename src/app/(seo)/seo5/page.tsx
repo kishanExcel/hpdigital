@@ -4,8 +4,8 @@ import { BorderLinearProgress } from "@/components/ProgressBars";
 
 export default function Page() {
   return (
-    <div className="mb-6">
-      <div className="flex w-full px-2">
+    <div className="mb-6 flex justify-center">
+      <div className="flex w-full md:max-w-[1280px] px-2">
         <div className="w-full pt-2 pl-2 flex flex-col gap-2">
           <div className="text-[#6D6D6D] text-2xl py-2 font-semibold">
             Local Listings
@@ -49,7 +49,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex justify-end w-full font-bold text-[#631363] px-2">
-            <div>More...</div>
+            <Button variant="ghost">More...</Button>
           </div>
           <div className="text-[#6D6D6D] text-2xl font-semibold py-2 ">
             Rankings
@@ -71,7 +71,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex justify-end w-full font-bold text-[#631363] px-2">
-            <div>More...</div>
+            <Button variant="ghost">More...</Button>
           </div>
           <div className="text-[#6D6D6D] text-2xl font-semibold py-2">
             Check-ins
@@ -112,7 +112,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex justify-end w-full font-bold text-[#631363] px-2">
-            <div>More...</div>
+            <Button variant="ghost">More...</Button>
           </div>
         </div>
       </div>
