@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 import { BorderLinearProgress } from "@/components/ProgressBars";
+import "./style.css";
 
 export default function Page() {
   return (
@@ -36,7 +37,10 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-2 p-4 w-full">
+            <div className="flex flex-col gap-3 relative  w-full">
+              <div className="border-l-2 w-20 h-24  z-20 bottom-[-0.75rem] top- absolute border-[#6D6D6D]">
+                {" "}
+              </div>
               <div className="font-semibold text-base">
                 <BorderLinearProgress value={38} />
               </div>
@@ -46,6 +50,11 @@ export default function Page() {
               <div className="font-semibold text-base">
                 <BorderLinearProgress value={80} />
               </div>
+            </div>
+            <div className="flex flex-col gap-1 pr-2 w-fit">
+              <div className="font-semibold text-base">131</div>
+              <div className="font-semibold text-base">180</div>
+              <div className="font-semibold text-base">97</div>
             </div>
           </div>
           <div className="flex justify-end w-full font-bold text-[#631363] px-2">
@@ -109,6 +118,11 @@ export default function Page() {
               <div className="font-semibold text-base">
                 <BorderLinearProgress value={80} color="#631363" />
               </div>
+            </div>
+            <div className="flex flex-col gap-1 pr-2 w-fit">
+              <div className="font-semibold text-base">7</div>
+              <div className="font-semibold text-base">31</div>
+              <div className="font-semibold text-base">157</div>
             </div>
           </div>
           <div className="flex justify-end w-full font-bold text-[#631363] px-2">

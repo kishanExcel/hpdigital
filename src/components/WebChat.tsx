@@ -20,25 +20,39 @@ export default function WebChat() {
     { id: 2, text: "Hi!", time: "05:25", sender: "me" },
     { id: 3, text: "How are you?", time: "05:25", sender: "other" },
     { id: 4, text: "I am good, thanks!", time: "05:25", sender: "me" },
+    { id: 5, text: "What about you?", time: "05:26", sender: "me" },
     {
-      id: 5,
-      text: "You have been invited to edit the file “Webchat Screens”",    
-      time: "05:25",
+      id: 6,
+      text: "I am doing well too, thanks for asking!",
+      time: "05:27",
       sender: "other",
     },
     {
-      id: 6,
-      text: "You have been invited to edit the file “Webchat Screens”",
-      time: "05:25",
+      id: 7,
+      text: "Do you have any plans for today?",
+      time: "05:28",
       sender: "me",
     },
     {
-      id: 5,
-      text: "You have been invited to edit the file “Webchat Screens”",
-      time: "05:25",
+      id: 8,
+      text: "Not much, just some work and maybe a movie later.",
+      time: "05:29",
+      sender: "other",
+    },
+    {
+      id: 9,
+      text: "That sounds nice! Any movie in particular?",
+      time: "05:30",
+      sender: "me",
+    },
+    {
+      id: 10,
+      text: "I'm thinking of watching the new Marvel movie.",
+      time: "05:31",
       sender: "other",
     },
   ];
+
   return (
     <div className="flex justify-center">
       <div className="flex flex-col h-screen bg-[#FFFFFF]  w-full md:max-w-[1280px]">
@@ -98,4 +112,3 @@ export default function WebChat() {
     </div>
   );
 }
-3;

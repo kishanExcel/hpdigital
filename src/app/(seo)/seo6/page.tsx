@@ -8,12 +8,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Image from "next/image";
-import FaceBookImg from "../../../assets/images/facebook.png";
 
 export default function Page() {
   return (
-    <div className="mb-6 w-full flex border-2 justify-center bg-[#F4F4F4]">
-      <div className="md:max-w-[1280px] w-full border-2">
+    <div className="mb-6 w-full flex border-2 justify-center">
+      <div className="md:max-w-[1280px] w-full border-2 bg-[#F4F4F4]">
         <div className="flex w-full px-2">
           <div className="w-full pt-2 pl-2 flex flex-col gap-2">
             <div className="text-[#6D6D6D] text-2xl font-semibold py-4 pl-4">

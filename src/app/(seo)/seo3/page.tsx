@@ -40,15 +40,17 @@ export default function Page() {
             <div>
               <div className="text-base w-full rounded-xl  border bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
                 <div className="flex justify-between">
-                  <div>All Keywords Avg. </div>
+                  <div className="pl-4 pt-1">All Keywords Avg. </div>
                   <div>
                     <ButtonGroup variant="text" aria-label="Basic button group">
                       <Button
                         variant="outline"
-                        className="border-r-0 bg-[#631363] h-8 text-white">
+                        className="rounded-tr-none rounded-br-none bg-[#631363] h-8 mr-[0.20rem] text-white">
                         11.6
                       </Button>
-                      <Button className="bg-[#E0E0E0] h-8" variant="outline">
+                      <Button
+                        className="bg-[#E0E0E0] rounded-tl-none rounded-bl-none h-8"
+                        variant="outline">
                         1.5
                       </Button>
                     </ButtonGroup>
@@ -58,7 +60,7 @@ export default function Page() {
             </div>
             <div className="text-base w-full rounded-xl  border-2  bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
               <div className="flex justify-between">
-                <div> Total Keywords</div>
+                <div className="pl-4 pt-1"> Total Keywords</div>
                 <div>
                   <Button
                     className="bg-[#631363] text-white h-8"
@@ -78,7 +80,7 @@ export default function Page() {
                     height={5}
                     alt="Picture of the Arrow"
                   />
-                  <div className="px-2">Keywords Up</div>
+                  <div className="px-1">Keywords Up</div>
                 </div>
                 <div>
                   <Button
@@ -99,7 +101,7 @@ export default function Page() {
                     height={5}
                     alt="Picture of the Arrow"
                   />
-                  <div> Keywords Down</div>
+                  <div className="px-1"> Keywords Down</div>
                 </div>
                 <div>
                   <Button
@@ -128,14 +130,14 @@ export default function Page() {
             </div>
           </div>
           <div className="px-4 flex w-full  py-2 items-center justify-center flex-col gap-2">
-            <div className="bg-[#CF232A] text-center h-20 font-semibold text-3xl  text-white w-full md:w-[50%] md:my-6 my-2 rounded-md">
+            <div className="bg-[#CF232A] text-center h-20 font-semibold text-3xl pt-2 text-white w-full md:w-[50%] md:my-6 my-2 rounded-md">
               11.6{" "}
               <div className="text-white text-center font-medium text-base">
                 Average Map Rank{" "}
               </div>
             </div>
             <div className=" font-bold  w-full h-20 border-2 text-3xl text-[#6D6D6D] md:w-[50%] md:my-2 text-center border-[#6D6D6D] rounded-md">
-              <div className="flex justify-center w-full items-center">
+              <div className="flex justify-center w-full items-center pt-1">
                 <div className="text-3xl text-center">2</div>
                 <Image
                   className="h-3 mt-2 ml-1"

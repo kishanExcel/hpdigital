@@ -4,7 +4,6 @@ import { styled } from "@mui/material/styles";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
-import { Box, Typography } from "@mui/material";
 
 type BorderLinearProgressProps = {
   value: number;
