@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Chip from "@mui/material/Chip";
 import { useState } from "react";
+import { X } from "lucide-react";
 
 export default function TargetKeyWord() {
   const [value, setValue] = useState(null);
@@ -48,6 +49,7 @@ export default function TargetKeyWord() {
               label={chipValue}
               onClick={() => console.log("Chip clicked:", chipValue)}
               onDelete={() => handleDelete(chipValue)}
+              deleteIcon={<X size="15px" color="#6D6D6D" />}
             />
           </div>
         ))}

@@ -1,9 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import GroupImg from "../../assets/images/Group.png";
 import Google from "../../assets/images/google.png";
 import Facebook from "../../assets/images/facebook.png";
 import Apple from "../../assets/images/apple.png";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+
+function AuthButton({ src, provider }: { src: string; provider: string }) {
+  return (
+    <>
+      <button
+        onClick={(event) => {
+          event.preventDefault();
+          signIn(provider, {
+            redirect: true,
+            callbackUrl: "http://localhost:3000",
+          });
+        }}
+        className="flex items-center border-2 bg-white justify-center w-full py-3 mb-2 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
+        <Image alt="google" width={20} height={20} src={src} />
+      </button>
+    </>
+  );
+}
 
 export default function Page() {
   return (
@@ -63,15 +84,10 @@ export default function Page() {
                     <p className="mx-6 text-grey-600">or Login with</p>
                     <hr className="h-0 border-b border-solid border-[#631363] grow" />
                   </div>
-                  <button className="flex items-center border-2 bg-white justify-center w-full py-3 mb-2 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
-                    <Image alt="google" width={20} height={20} src={Google} />
-                  </button>
-                  <button className="flex items-center border-2 bg-white justify-center w-full py-3 mb-2 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
-                    <Image alt="google" width={20} height={20} src={Facebook} />
-                  </button>
-                  <button className="flex items-center border-2 bg-white justify-center w-full py-3 mb-2 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
-                    <Image alt="google" width={20} height={20} src={Apple} />
-                  </button>
+
+                  <AuthButton src={Google.src} provider="google" />
+                  <AuthButton src={Facebook.src} provider="facebook" />
+                  <AuthButton src={Apple.src} provider="apple" />
                   <p className="text-sm leading-relaxed text-[#606060]">
                     Don`&apos;t have an account?{" "}
                     <Link href="/signup" className="font-bold text-[#631363]">
