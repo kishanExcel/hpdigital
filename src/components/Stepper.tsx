@@ -5,9 +5,15 @@ import Step from "@mui/material/Step";
 import { styled } from "@mui/material/styles";
 import StepLabel from "@mui/material/StepLabel";
 
-const CustomStepLabel = styled(StepLabel)(({ theme, active }) => ({
+interface CustomStepLabelProps {
+  active: boolean;
+}
+
+const CustomStepLabel = styled(StepLabel, {
+  shouldForwardProp: (prop) => prop !== "active",
+})<CustomStepLabelProps>(({ theme, active }) => ({
   "& .MuiStepLabel-label": {
-    color: (props: any) => (props.active ? "pink" : "default"),
+    color: (props: CustomStepLabelProps) => (props.active ? "pink" : "default"),
   },
   "& .MuiSvgIcon-root.Mui-completed": {
     color: "transparent",
@@ -42,7 +48,13 @@ const CustomStepLabel = styled(StepLabel)(({ theme, active }) => ({
   },
 }));
 
-export const CustomizedSteppers = ({ currentStep }) => {
+interface CustomizedSteppersProps {
+  currentStep: number;
+}
+
+export const CustomizedSteppers: React.FC<CustomizedSteppersProps> = ({
+  currentStep,
+}) => {
   const steps = [
     "10th Nov 2023",
     "10th Dec 2023",

@@ -9,9 +9,6 @@ import {
 } from "@/components/ui/table";
 import Image from "next/image";
 import Screen from "../../../assets/images/BottomScreen.png";
-import greenBg from "../../../assets/images/green-bg.svg";
-import yellowBg from "../../../assets/images/yellow-bg.svg";
-import redBg from "../../../assets/images/button-bg.svg";
 
 export default function Page() {
   return (
@@ -65,7 +62,7 @@ export default function Page() {
           <Table className="my-4">
             <TableHeader>
               <TableRow>
-                <TableHead className=" text-[#631363] ">
+                <TableHead className=" text-[#631363] w-[240px]">
                   Site/Directory
                 </TableHead>
                 <TableHead className=" text-[#631363] ">Name</TableHead>
@@ -76,21 +73,37 @@ export default function Page() {
             </TableHeader>
             <TableBody>
               {directoryListings.map((invoice) => (
-                <TableRow key={invoice.Site}>
-                  <TableCell className="font-semibold text-[#6D6D6D]">
-                    <div className="flex items-center gap-2">
-                      <div>
-                        <Image
-                          style={{ objectFit: "contain" }}
-                          src={invoice.img}
-                          quality={90}
-                          width={16}
-                          height={16}
-                          className="h-6"
-                          alt="Picture of the Site"
-                        />
+                <TableRow
+                  className="border-y-2 border-[#6D6D6D]"
+                  key={invoice.Site}>
+                  <TableCell className="font-semibold p-[5px] md:p-[1rem] text-[#6D6D6D] ">
+                    <div className="flex justify-start items-center md:gap-2 gap-1">
+                      <div className="flex items-center gap-1 md:gap-2">
+                        <div className="flex justify-center gap-2 items-center">
+                          <div
+                            className={`w-3 h-3 border flex-shrink-0 rounded-full`}
+                            style={{
+                              background: `linear-gradient(to bottom, ${invoice.from}, ${invoice.via}, ${invoice.to})`,
+                            }}></div>
+                          <div className="flex-shrink-0">
+                            <Image
+                              style={{
+                                objectFit: "contain",
+                                height: "20px",
+                                width: "auto",
+                              }}
+                              src={invoice.img}
+                              quality={100}
+                              width={100}
+                              height={100}
+                              alt="Picture of the Site"
+                            />
+                          </div>
+                        </div>
+                        <div className="text-xs ml-2 md:ml-0 md:text-sm">
+                          {invoice.Site}
+                        </div>
                       </div>
-                      <div className="text-xs">{invoice.Site}</div>
                     </div>
                   </TableCell>
                   <TableCell className="text-[#6D6D6D] text-xs text-nowrap">

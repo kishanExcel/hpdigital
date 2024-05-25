@@ -74,7 +74,7 @@ export default function Page() {
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
                     <Image
-                      className="h-4"
+                      className="h-3 ml-2"
                       src={greenArrow}
                       width={10}
                       height={5}
@@ -95,8 +95,8 @@ export default function Page() {
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
                     <Image
+                      className="h-3 ml-2"
                       src={redArrow}
-                      className="h-4"
                       width={10}
                       height={5}
                       alt="Picture of the Arrow"
