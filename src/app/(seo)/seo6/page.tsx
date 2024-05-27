@@ -13,8 +13,8 @@ import Screen from "../../../assets/images/BottomScreen.png";
 export default function Page() {
   return (
     <>
-      <div className="mb-6 w-full flex border-2 justify-center">
-        <div className="md:max-w-[1280px] w-full border-2 bg-[#F4F4F4]">
+      <div className="mb-6 w-full flex justify-center">
+        <div className="md:max-w-[1280px] w-full  bg-[#F4F4F4]">
           <div className="flex w-full px-2">
             <div className="w-full pt-2 pl-2 flex flex-col gap-2">
               <div className="text-[#6D6D6D] text-2xl font-semibold py-4 pl-4">
@@ -85,17 +85,18 @@ export default function Page() {
                             style={{
                               background: `linear-gradient(to bottom, ${invoice.from}, ${invoice.via}, ${invoice.to})`,
                             }}></div>
-                          <div className="flex-shrink-0">
+                          <div className="flex-shrink-0 pt-1">
                             <Image
                               style={{
                                 objectFit: "contain",
-                                height: "20px",
-                                width: "auto",
+                                aspectRatio: "3/2",
+                                width: "24px",
+                                height: "24px",
                               }}
                               src={invoice.img}
                               quality={100}
-                              width={100}
-                              height={100}
+                              width={0}
+                              height={0}
                               alt="Picture of the Site"
                             />
                           </div>
@@ -124,7 +125,15 @@ export default function Page() {
           </Table>
         </div>
       </div>
-      <Image className="flex md:hidden" alt="screen" src={Screen} />
+      <Image
+        height={0}
+        width={0}
+        style={{ width: "100%", height: "auto" }}
+        priority={true}
+        className="flex md:hidden"
+        alt="screen"
+        src={Screen}
+      />
     </>
   );
 }

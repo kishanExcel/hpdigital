@@ -58,7 +58,7 @@ function Calendar({
         }}
         {...props}
       />
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[0.10rem] h-full bg-purple-800"></div>
+      <div className="absolute hidden md:flex top-0 left-1/2 transform -translate-x-1/2 w-[0.10rem] h-full bg-purple-800"></div>
     </div>
   );
 }

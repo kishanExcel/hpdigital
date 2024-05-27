@@ -149,7 +149,15 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <Image className="flex md:hidden" alt="screen" src={Screen} />
+      <Image
+        height={0}
+        width={0}
+        style={{ width: "100%", height: "auto" }}
+        priority={true}
+        className="flex md:hidden"
+        alt="screen"
+        src={Screen}
+      />
     </>
   );
 }

@@ -4,5 +4,10 @@ export default async function Page() {
   const data = await getData();
 
   console.log("Data of jsonplaceholder", data);
-  return <div>Fetch Data</div>;
+  return (
+    <div>
+      <div>Id: {data?.id}</div>
+      <div>Username: {data?.name}</div>
+    </div>
+  );
 }

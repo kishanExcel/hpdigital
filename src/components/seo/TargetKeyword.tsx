@@ -30,7 +30,7 @@ export default function TargetKeyWord() {
       <div className="text-[#6D6D6D] pb-2 font-semibold">Target Keyword</div>
       <div className="flex w-full items-center justify-center gap-2">
         <Input
-          className="rounded-xl  w-full border-0"
+          className="rounded-xl bg-[#FFFFFF]  w-full border-0"
           type="search"
           value={value || ""}
           onChange={handleChange}

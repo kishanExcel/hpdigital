@@ -34,7 +34,15 @@ export default function SeoBar() {
           </div>
         </div>
       </div>
-      <Image className="flex md:hidden" alt="screen" src={Screen} />
+      <Image
+        height={0}
+        width={0}
+        priority={true}
+        style={{ width: "100%", height: "auto" }}
+        className="flex md:hidden"
+        alt="screen"
+        src={Screen}
+      />
     </>
   );
 }

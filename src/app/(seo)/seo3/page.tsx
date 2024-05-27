@@ -12,11 +12,11 @@ import { Button } from "@/components/ui/button";
 import { employees } from "@/utils/statsTableData";
 import { ButtonGroup, Rating } from "@mui/material";
 import Image from "next/image";
-import greenArrow from "../../../assets/images/greeenArrow.png";
-import redArrow from "../../../assets/images/redArrow.png";
 import Flag from "../../../assets/images/flag.png";
 import Screen from "../../../assets/images/BottomScreen.png";
 import { CustomizedSteppers } from "@/components/Stepper";
+import { ArrowBigUp } from "lucide-react";
+import { ArrowBigDown } from "lucide-react";
 
 export default function Page() {
   return (
@@ -31,26 +31,24 @@ export default function Page() {
               <div>
                 <div className="text-base w-full rounded-xl  border bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
                   <div className="flex justify-between">
-                    <div className="pl-4 pt-1">All Keywords Avg. </div>
+                    <div className="pl-3 pt-1">All Keywords Avg. </div>
                     <div>
                       <ButtonGroup
                         variant="text"
                         aria-label="Basic button group">
                         <Button
                           variant="outline"
-                          className="rounded-tr-none rounded-br-none bg-[#631363] h-8 px-7 mr-[0.20rem] text-white">
-                          11.6
+                          className="rounded-tr-none rounded-br-none bg-[#631363] h-8 px-5 mr-[0.20rem] text-white">
+                          <div className="font-bold text-lg">11.6</div>
                         </Button>
                         <Button
-                          className="bg-[#E0E0E0] rounded-tl-none rounded-bl-none h-8"
+                          className="bg-[#E0E0E0] rounded-tl-none rounded-bl-none h-8 px-2"
                           variant="outline">
-                          1.5
-                          <Image
-                            className="h-3 ml-2"
-                            src={greenArrow}
-                            width={10}
-                            height={5}
-                            alt="Picture of the Arrow"
+                          <div className="font-bold text-lg">1.5</div>
+                          <ArrowBigUp
+                            size={18}
+                            color="#40F440"
+                            fill="#40F440"
                           />
                         </Button>
                       </ButtonGroup>
@@ -60,12 +58,12 @@ export default function Page() {
               </div>
               <div className="text-base w-full rounded-xl  border-2  bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
                 <div className="flex justify-between">
-                  <div className="pl-4 pt-1"> Total Keywords</div>
+                  <div className="pl-3 pt-1"> Total Keywords</div>
                   <div>
                     <Button
                       className="bg-[#631363] px-7  text-white h-8"
                       variant="outline">
-                      5
+                      <div className="font-bold text-lg">5</div>
                     </Button>
                   </div>
                 </div>
@@ -73,20 +71,14 @@ export default function Page() {
               <div className="text-base w-full rounded-xl  border-2  bg-[#F4F4F4] p-2 font-semibold  text-[#6D6D6D] ">
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
-                    <Image
-                      className="h-3 ml-2"
-                      src={greenArrow}
-                      width={10}
-                      height={5}
-                      alt="Picture of the Arrow"
-                    />
+                    <ArrowBigUp color="#40F440" fill="#40F440" />
                     <div className="px-1">Keywords Up</div>
                   </div>
                   <div>
                     <Button
                       className="bg-[#631363] px-7  text-white h-8"
                       variant="outline">
-                      4
+                      <div className="font-bold text-lg">4</div>
                     </Button>
                   </div>
                 </div>
@@ -94,20 +86,14 @@ export default function Page() {
               <div className="text-base w-full rounded-xl  border-2  bg-[#F4F4F4] p-2 font-semibold text-[#6D6D6D] ">
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
-                    <Image
-                      className="h-3 ml-2"
-                      src={redArrow}
-                      width={10}
-                      height={5}
-                      alt="Picture of the Arrow"
-                    />
+                    <ArrowBigDown color="#CF232A" fill="#CF232A" />
                     <div className="px-1"> Keywords Down</div>
                   </div>
                   <div>
                     <Button
                       className="bg-[#631363] px-7  h-8 text-white"
                       variant="outline">
-                      1
+                      <div className="font-bold text-lg">1</div>
                     </Button>
                   </div>
                 </div>
@@ -132,14 +118,11 @@ export default function Page() {
               </div>
               <div className=" font-bold  w-full h-20 border-2 text-3xl text-[#6D6D6D] md:w-[50%] md:my-2 text-center border-[#6D6D6D] rounded-md">
                 <div className="flex justify-center w-full items-center pt-1">
-                  <div className="text-3xl text-center">2</div>
-                  <Image
-                    className="h-3 mt-2 ml-1"
-                    src={greenArrow}
-                    width={10}
-                    height={5}
-                    alt="Picture of the Arrow"
-                  />
+                  <div className="text-3xl text-center font-bold">2</div>
+                  <div className="pt-2">
+                    {" "}
+                    <ArrowBigUp size={20} color="#40F440" fill="#40F440" />
+                  </div>
                 </div>
                 <div className="text-[#6D6D6D] text-center pt-1 text-base font-semibold">
                   Change
@@ -237,7 +220,13 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <Image className="flex md:hidden " alt="screen" src={Screen} />
+      <Image
+        width={100}
+        height={100}
+        className="flex md:hidden w-full"
+        alt="screen"
+        src={Screen}
+      />
     </>
   );
 }

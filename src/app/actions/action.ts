@@ -2,8 +2,7 @@
 export async function getData() {
     // handle using server actions
     try {
-        const jsonResponse = await fetch('https://jsonplaceholder.typicode.com/posts/1');
-
+        const jsonResponse = await fetch(`https://graph.facebook.com/me?fields=id,name,accounts&access_token=${process.env.FACEBOOK_GRAPH_API}`);
         if (!jsonResponse.ok) {
             let errorDetails;
             try {
