@@ -4,6 +4,7 @@ import * as React from "react";
 import { addDays, format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
+import { ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -30,16 +31,22 @@ export function DatePickerWithRange({
             id="date"
             variant={"outline"}
             className={cn(
-              "w-[222px] lg:w-[280px] justify-start text-left font-normal bg-white",
+              "w-[222px] lg:w-[280px] justify-start text-left font-normal bg-white rounded-full",
               !date && "text-muted-foreground"
             )}>
             <CalendarIcon className="mr-2 h-4 w-4" />
             {date?.from ? (
               date.to ? (
-                <>
-                  {format(date.from, "LLL dd, y")} -{" "}
-                  {format(date.to, "LLL dd, y")}
-                </>
+                <div className="flex text-[#6D6D6D]">
+                  <div>
+                    {" "}
+                    {format(date.from, "LLL dd, y")} -{" "}
+                    {format(date.to, "LLL dd, y")}
+                  </div>
+                  <div>
+                    <ChevronDown />
+                  </div>
+                </div>
               ) : (
                 format(date.from, "LLL dd, y")
               )

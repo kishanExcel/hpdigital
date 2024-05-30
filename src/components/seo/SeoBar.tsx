@@ -10,7 +10,7 @@ export default function SeoBar() {
         <div className="mb-6 bg-[#F4F4F4]  w-full md:max-w-[1280px]">
           <div className="flex flex-col w-full px-2">
             <div className="w-[60%] pt-2 pl-2 flex flex-col gap-2">
-              <div className="text-[#6D6D6D] text-xl md:text-2xl p-1 font-semibold">
+              <div className="text-[#6D6D6D]  tracking-wide text-xl md:text-2xl p-1 font-semibold">
                 Rankings
               </div>
             </div>

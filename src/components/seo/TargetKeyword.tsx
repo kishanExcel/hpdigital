@@ -27,7 +27,7 @@ export default function TargetKeyWord() {
 
   return (
     <div className="flex flex-col w-full md:w-[40%] px-4 justify-center">
-      <div className="text-[#6D6D6D] pb-2 font-semibold">Target Keyword</div>
+      <div className="text-[#6D6D6D] pb-2 font- bold">Target Keyword</div>
       <div className="flex w-full items-center justify-center gap-2">
         <Input
           className="rounded-xl bg-[#FFFFFF]  w-full border-0"

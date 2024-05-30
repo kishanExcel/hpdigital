@@ -100,7 +100,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="px-4 py-4 text-[#6D6D6D] font-semibold text-lg md:text-2xl">
+            <div className="px-5 py-4 text-[#6D6D6D] font-semibold text-lg md:text-2xl">
               Results for{" "}
               <span className="text-[#631363] text-base md:text-xl font-bold">
                 ‘roof repair’
@@ -112,7 +112,7 @@ export default function Page() {
             <div className="px-4 flex w-full  py-2 items-center justify-center flex-col gap-2">
               <div className="bg-[#CF232A] text-center h-20 font-semibold text-3xl pt-2 text-white w-full md:w-[50%] md:my-6 my-2 rounded-md">
                 11.6{" "}
-                <div className="text-white text-center font-medium text-base">
+                <div className="text-white text-center font-medium text-sm">
                   Average Map Rank{" "}
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function Page() {
                     <ArrowBigUp size={20} color="#40F440" fill="#40F440" />
                   </div>
                 </div>
-                <div className="text-[#6D6D6D] text-center pt-1 text-base font-semibold">
+                <div className="text-[#6D6D6D] text-center pt-1 text-sm font-medium">
                   Change
                 </div>
               </div>
