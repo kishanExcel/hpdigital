@@ -1,7 +1,10 @@
+
+"use server"
 import axios from 'axios';
+import { cookies } from 'next/headers';
+
 
 export async function getData() {
-    // handle using server actions
     try {
         const response = await axios.get(`${process.env.NEXTAUTH_BASEURL}/api/v1/pages`, {
             headers: {
@@ -19,9 +22,12 @@ export async function getData() {
             console.error(`Error in fetching the pages details: Status ${response.status}, Details: ${errorDetails}`);
 
         } else {
+            // cookies().set("access_token", response.data.data)
             return response.data.data
         }
-    } catch (error) {
+
+    }
+    catch (error) {
         if (axios.isAxiosError(error)) {
             if (error.response) {
 
@@ -78,9 +84,9 @@ export async function getConversations() {
         }
     }
 }
-export async function getConversationsById() {
+export async function getConversationsById(id: any) {
     try {
-        const response = await axios.get(`${process.env.NEXTAUTH_BASEURL}/api/v1/messages?conversationId=t_122095210520350454`, {
+        const response = await axios.get(`${process.env.NEXTAUTH_BASEURL}/api/v1/messages?conversationId=${id}`, {
             headers: {
                 'Authorization': `Bearer ${process.env.NEXTAUTH_PAGE_TOKEN}`
             }

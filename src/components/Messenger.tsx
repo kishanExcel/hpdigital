@@ -1,49 +1,79 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ChevronLeft } from "lucide-react";
-import { Send } from "lucide-react";
-import { Smile } from "lucide-react";
+import { ChevronLeft, Send, Smile } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import Link from "next/link";
 import moment from "moment";
 
-export default function Messenger({ data, chatList }) {
+interface Message {
+  id: string;
+  text: string;
+  message: string;
+  from: {
+    id: string;
+  };
+  time: string;
+  created_time: string;
+  sender: "me" | "other";
+}
+
+interface Conversation {
+  id: string;
+  updated_time: string;
+}
+
+interface Data {
+  messages: Message[];
+}
+
+interface ChatList {
+  conversations: Conversation[];
+}
+
+interface MessengerProps {
+  data: Data | null;
+  chatList: ChatList | null;
+}
+
+export default function Messenger({ data, chatList }: MessengerProps) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
+  console.log("messagesEndRef", data);
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [data]);
 
-  const transformedMessages = data?.messages?.map((message: any) => ({
-    id: message.id,
-    text: message.message,
-    time: moment(message.created_time).format("h:mm A"),
-    sender: message.from.id === "322980254230386" ? "me" : "other",
-  }));
+  const transformedMessages = data?.messages
+    ?.map((message) => ({
+      id: message.id,
+      text: message.message,
+      time: moment(message.created_time).format("h:mm A"),
+      sender: message.from.id === "322980254230386" ? "me" : "other",
+    }))
+    .reverse();
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col h-screen bg-[#FFFFFF]  w-full md:max-w-[1280px]">
+      <div className="flex flex-col h-screen bg-[#FFFFFF] w-full md:max-w-[1280px]">
         <div className="flex">
-          {chatList?.conversations?.map((item, index) => (
-            <div className="flex gap-4" key={index}>
-              {/* <div>{item.id}</div>
-              <div className="w-30">
-                {moment(item.updated_time).format("h:mm A")}{" "}
-              </div> */}
-              <div className="w-20 h-20 bg-blue-200 rounded-full">
-                <div className="text-center">
-                  {moment(item.updated_time).format("h:mm A")} s
+          {chatList?.conversations
+            ?.slice()
+            .reverse()
+            .map((item, index) => (
+              <div className="flex gap-4" key={item.id}>
+                <div className="w-20 h-20 bg-blue-200 rounded-full">
+                  <div className="text-center">
+                    {moment(item.updated_time).format("h:mm A")} s
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
         <header className="flex items-center justify-between p-4 bg-blue-500 text-white">
           <Button className="px-0 py-0 h-fit" variant="ghost">
-            <Link href="/chats">
+            <Link href="/analytics/messenger">
               <ChevronLeft size={32} />
             </Link>
           </Button>
@@ -52,7 +82,7 @@ export default function Messenger({ data, chatList }) {
           </div>
         </header>
         <main className="flex flex-col flex-grow p-4 overflow-auto">
-          {transformedMessages?.map((message: any) => (
+          {transformedMessages?.map((message) => (
             <div
               key={message.id}
               className={`flex ${

@@ -1,18 +1,38 @@
+"use client";
+
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useEffect } from "react";
 
+interface Account {
+  id: string;
+  name: string;
+  category: string;
+  access_token: string;
+}
 
-export default async function GET() {
-  const apiData = await fetch("http://localhost:3000/api/getData", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+interface AnalyticsData {
+  id: string;
+  name: string;
+  accounts: {
+    data: Account[];
+  };
+}
 
-  const data = await apiData.json();
+interface AnalyticsProps {
+  data: AnalyticsData | null;
+}
 
+export default function Analytics({ data }: AnalyticsProps) {
+  console.log("this is the data", data);
+  useEffect(() => {
+    if (data && data?.accounts) {
+      const token = data?.accounts?.data[0]?.access_token;
+      sessionStorage.setItem("access_token", token);
+      console.log("Token set in session storage:", token);
+    }
+  }, [data]);
   return (
     <div className="flex flex-col min-h-screen">
       <header className="bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
@@ -22,7 +42,7 @@ export default async function GET() {
             <AvatarFallback>JD</AvatarFallback>
           </Avatar> */}
           <div>
-            <h1 className="text-lg font-bold">{data?.data?.name}</h1>
+            <h1 className="text-lg font-bold">{data?.name}</h1>
             {/* <p className="text-sm text-gray-400">john@example.com</p> */}
           </div>
         </div>
@@ -107,30 +127,28 @@ export default async function GET() {
                 <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      {data?.data?.accounts?.data?.map(
-                        (item: any, index: number) => (
-                          <div key={index}>
-                            <h3 className="text-lg font-bold" key={index}>
-                              {item?.name}{" "}
-                            </h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
-                              {item?.category}
-                            </p>
-                          </div>
-                        )
-                      )}
+                      {data?.accounts?.data?.map((item: any, index: number) => (
+                        <div key={index}>
+                          <h3 className="text-lg font-bold" key={index}>
+                            {item?.name}{" "}
+                          </h3>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {item?.category}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                     <div className="flex items-center gap-2">
                       <Link
-                        href="analytics/messenger"
-                        className="bg-gray-200 dark:bg-gray-700 font-semibold text-xs px-3 py-1 rounded-full">
+                        href="/messenger"
+                        className="bg-gray-200 dark:bg-gray-700 font-semibold text-xs px-2 py-1 rounded-full">
                         Chats
                       </Link>
-                      <Link
-                        href="analytics/adsCampaign"
-                        className="bg-gray-200 dark:bg-gray-700 font-semibold text-xs px-3 py-1 rounded-full">
+                      <Badge
+                        variant="outline"
+                        className="bg-gray-200 dark:bg-gray-700 text-xs">
                         Ads
-                      </Link>
+                      </Badge>
                       <Badge
                         variant="outline"
                         className="bg-gray-200 dark:bg-gray-700 text-xs">
