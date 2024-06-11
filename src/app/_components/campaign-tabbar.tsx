@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProfileForm from "./create-campaign-form";
+import AdSet from "./create-adset-form";
 
 export function VariantTabs() {
   return (
@@ -16,7 +17,7 @@ export function VariantTabs() {
       </TabsContent>
       <TabsContent value="createadset" className="mt-6">
         {" "}
-        Create an Ad Set
+        <AdSet />
       </TabsContent>
       <TabsContent value="createcreative" className="mt-6">
         Create Ad Creative

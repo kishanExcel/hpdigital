@@ -22,7 +22,6 @@ export async function getData() {
             console.error(`Error in fetching the pages details: Status ${response.status}, Details: ${errorDetails}`);
 
         } else {
-            // cookies().set("access_token", response.data.data)
             return response.data.data
         }
 
@@ -45,14 +44,15 @@ export async function getData() {
         }
     }
 }
-export async function getConversations() {
+export async function getConversations(id: number) {
     // handle using server actions
     try {
-        const response = await axios.get(`${process.env.NEXTAUTH_BASEURL}/api/v1/coversation?pageId=322980254230386`, {
+        const response = await axios.get(`${process.env.NEXTAUTH_BASEURL}/api/v1/coversation?pageId=${id}`, {
             headers: {
-                'Authorization': `Bearer ${process.env.NEXTAUTH_PAGE_TOKEN}`
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_PAGE_TOKEN}`
             },
         });
+        console.log(response, "on serbver ")
 
         if (response.status !== 200) {
             let errorDetails;
@@ -88,7 +88,7 @@ export async function getConversationsById(id: any) {
     try {
         const response = await axios.get(`${process.env.NEXTAUTH_BASEURL}/api/v1/messages?conversationId=${id}`, {
             headers: {
-                'Authorization': `Bearer ${process.env.NEXTAUTH_PAGE_TOKEN}`
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_PAGE_TOKEN}`
             }
         });
 

@@ -17,18 +17,18 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  buying: z.string(),
+  bid_amount: z.string(),
   adname: z.string(),
   objective: z.string(),
   status: z.string(),
   special_ad_categories: z.string(),
 });
 
-export default function ProfileForm() {
+export default function AdSet() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      buying: "",
+      bid_amount: "",
       adname: "",
       objective: "",
       status: "",
@@ -36,28 +36,26 @@ export default function ProfileForm() {
     },
   });
 
-  console.log("process env file");
   function onSubmit(values: z.infer<typeof formSchema>) {
     const payload = {
-      ad_account_id: "433913099432932",
-      buying_type: values.buying,
+      access_token: process.env.NEXT_PUBLIC_PAGE_TOKEN,
+      ad_account_id: process.env.NEXT_PUBLIC_AD_ACCOUNT,
+      bid_amount: values.bid_amount,
+      daily_budget: 1000,
+      campaign_id: "Your_campaign_id",
+      destination_type: "MESSENGER",
       name: values.adname,
-      objective: values.objective,
-      status: values.status,
-      special_ad_categories:
-        values.special_ad_categories.length === 1 &&
-        values.special_ad_categories[0] === ""
-          ? "NONE"
-          : [values.special_ad_categories],
+      optimization_goal: "IMPRESSIONS",
+      status: "PAUSED",
+      targeting: {
+        geo_locations: { countries: ["US", "CA"] },
+        device_platforms: ["mobile", "desktop"],
+        publisher_platforms: ["messenger"],
+      },
     };
-    console.log("Payload:", payload);
 
     axios
-      .post("http://116.202.210.102:3005/api/v1/campaign", payload, {
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAGE_TOKEN}`,
-        },
-      })
+      .post("http://116.202.210.102:3005/api/v1/adset", payload)
       .then((response) => {
         console.log("API Response:", response);
       })
@@ -72,12 +70,12 @@ export default function ProfileForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="buying"
+            name="bid_amount"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Buying type</FormLabel>
+                <FormLabel>Bid Amount</FormLabel>
                 <FormControl>
-                  <Input placeholder="AUCTION" {...field} />
+                  <Input placeholder="1000$" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -90,7 +88,7 @@ export default function ProfileForm() {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Messenger_ad_campaign_name" {...field} />
+                  <Input placeholder="Messenger_ad_set_name" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

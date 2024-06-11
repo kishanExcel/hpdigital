@@ -1,5 +1,5 @@
-import { VariantTabs } from "@/app/_components/campaign-tabbar";
+import ProfileForm from "@/app/_components/create-campaign-form";
 
 export default async function Page() {
-  return <VariantTabs />;
+  return <ProfileForm />;
 }

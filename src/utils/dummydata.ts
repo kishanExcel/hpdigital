@@ -71,3 +71,29 @@ export const employees = [
     },
 ];
 
+export const organic = [
+    {
+        "name": "Facebook",
+        "posts": 152,
+        "likes": 485,
+        "comments": 120,
+        "shares": 21,
+        "messages": 1125
+    },
+    {
+        "name": "GMB",
+        "posts": 56,
+        "likes": 26,
+        "comments": 147,
+        "shares": 3,
+        "messages": 525
+    },
+    {
+        "name": "Instagram",
+        "posts": 196,
+        "likes": 1253,
+        "comments": 326,
+        "shares": 2,
+        "messages": 653
+    }
+]
