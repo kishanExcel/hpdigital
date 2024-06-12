@@ -96,27 +96,27 @@ export default function Page() {
               Reply
             </Button>
             {expanded === "reply" && (
-              <div className="flex gap-2 border rounded-xl  justify-start  p-4">
+              <div className="flex gap-2 border rounded-xl  justify-start  px-4 pb-10">
                 <div className="">
                   {" "}
                   <Button
-                    className="flex flex-col"
+                    className="flex relative bg-white border-0  rounded-tl-md rounded-br-none rounded-bl-none mt-2 w-10 flex-col justify-start items-start"
                     onClick={() => handleSetMessage("messages")}>
                     {" "}
-                    <div>
+                    <div className="absolute top-1 right-2">
                       <MessageCircleMore color="#6D6D6D" />
                     </div>
-                    {/* {message === "messages" && (
-                      <div>
-                        <textarea
-                          name="message"
-                          id="message"
-                          placeholder="Jessica Thank you for the message.">
-                          {" "}
-                        </textarea>
-                      </div>
-                    )} */}
                   </Button>
+                  {message === "messages" && (
+                    <div className="">
+                      <textarea
+                        name="message"
+                        id="message"
+                        placeholder="Jessica Thank you for the message.">
+                        {" "}
+                      </textarea>
+                    </div>
+                  )}
                 </div>
                 <div className="pt-2">
                   {" "}

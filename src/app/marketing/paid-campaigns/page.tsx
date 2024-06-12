@@ -1,7 +1,7 @@
 import { organic } from "@/utils/dummydata";
 import Image from "next/image";
 
-export default function OrganicLayout() {
+export default function PaidCampaignsLayout() {
   return (
     <div className="px-2 flex gap-4 flex-col">
       {organic.map((item, index) => (

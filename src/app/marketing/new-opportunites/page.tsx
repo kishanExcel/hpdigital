@@ -43,7 +43,7 @@ export default function Page() {
                   variant="outline"
                   className="bg-[#631363] h-8 w-18 rounded-xl text-white">
                   {" "}
-                  <span className="pt-1">
+                  <span className="pt-1"      >
                     {" "}
                     <Plus strokeWidth={5} size={12} />
                   </span>{" "}
