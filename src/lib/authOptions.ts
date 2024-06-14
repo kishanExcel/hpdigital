@@ -1,7 +1,6 @@
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import AppleProvider from "next-auth/providers/apple";
-import { debug } from "console";
 
 
 
@@ -50,9 +49,8 @@ export const authOptions = {
                 image: profile.picture.data.url,
             };
         },
-    }
-
-        AppleProvider({
+    },
+    AppleProvider({
         clientId: process.env.APPLE_ID ?? "",
         clientSecret: process.env.APPLE_SECRET ?? ""
     })

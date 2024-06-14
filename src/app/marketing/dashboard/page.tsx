@@ -107,7 +107,7 @@ export default function Page() {
                       <MessageCircleMore color="#6D6D6D" />
                     </div>
                   </Button>
-                  {message === "messages" && (
+                  {/* {message === "messages" && (
                     <div className="">
                       <textarea
                         name="message"
@@ -116,7 +116,7 @@ export default function Page() {
                         {" "}
                       </textarea>
                     </div>
-                  )}
+                  )} */}
                 </div>
                 <div className="pt-2">
                   {" "}
