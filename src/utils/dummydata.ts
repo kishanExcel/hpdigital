@@ -143,3 +143,32 @@ export const follows = [
         "status": "Published"
     }
 ]
+
+
+export const grape_ui2 = [
+    {
+        img: td5,
+        "name": "Free estimate",
+        "impressions": 1341,
+        "clicks": 336,
+        "conversions": 3452,
+    },
+    {
+        img: td7,
+        "name": "New Leads 1",
+        "impressions": 12311,
+        "clicks": 3236,
+        "conversions": 342,
+    }
+]
+
+export const grape_ui2_reactivation = [
+    {
+        img: td6,
+        "name": "Friday 20% Off",
+        "Text_Sent": 1341,
+        "Leads": 336,
+        "text_replied": 3452,
+    },
+    
+]
