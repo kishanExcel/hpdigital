@@ -75,6 +75,7 @@ export const employees = [
 import td5 from "../assets/images/marketing/facebook.png"
 import td6 from "../assets/images/marketing/Untitled (3).png"
 import td7 from "../assets/images/marketing/google.png"
+import td8 from "../assets/images/marketing/new4.png"
 
 export const organic = [
     {
@@ -105,6 +106,30 @@ export const organic = [
         "messages": 653
     }
 ]
+export const graphUi = [
+    {
+        img: td6,
+        "name": "New Leads 1",
+        "posts": 125258,
+        "likes": 5248,
+        "comments": 402,
+
+    },
+    {
+        img: td6,
+        "name": "Free Estimates",
+        "posts": 123111,
+        "likes": 3258,
+        "comments": 371,
+    },
+    {
+        img: td8,
+        "name": "New Leads 1",
+        "posts": 78258,
+        "likes": 8695,
+        "comments": 917,
+    }
+]
 export const follows = [
     {
         "name": "Facebook Lead 1 Follow Up",
@@ -114,7 +139,7 @@ export const follows = [
         "replied": 13,
         "reply": "10%",
         "status": "Published"
-    },
+    },  
     {
         "name": "Free Estimates 1",
         "total": 23,
@@ -170,5 +195,5 @@ export const grape_ui2_reactivation = [
         "Leads": 336,
         "text_replied": 3452,
     },
-    
+
 ]

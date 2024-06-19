@@ -36,10 +36,9 @@ export default function ProfileForm() {
     },
   });
 
-  console.log("process env file");
   function onSubmit(values: z.infer<typeof formSchema>) {
     const payload = {
-      ad_account_id: "433913099432932",
+      ad_account_id: "433913099432932", // put your own ad_account_id //
       buying_type: values.buying,
       name: values.adname,
       objective: values.objective,
@@ -50,7 +49,6 @@ export default function ProfileForm() {
           ? "NONE"
           : [values.special_ad_categories],
     };
-    console.log("Payload:", payload);
 
     axios
       .post("http://116.202.210.102:3005/api/v1/campaign", payload, {

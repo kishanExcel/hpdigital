@@ -6,7 +6,7 @@ import Google from "../../assets/images/google.png";
 import Facebook from "../../assets/images/facebook.png";
 import Apple from "../../assets/images/apple.png";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 function AuthButton({ src, provider }: { src: string; provider: string }) {
   return (
@@ -25,13 +25,15 @@ function AuthButton({ src, provider }: { src: string; provider: string }) {
     </>
   );
 }
-
 export default function Page() {
+  const { data: session, status } = useSession();
+  console.log("Data getting from useSession", status, session);
   return (
     <div className="flex flex-col bg-[#F4F4F4]">
       <div className="flex justify-end">
         <Image alt="GroupImage" src={GroupImg} width={178} height={133} />
       </div>
+      s
       <div>
         <div className="container flex flex-col mx-auto rounded-lg pt-6 md:pt-1 my-1">
           <div className="flex justify-center w-full h-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
@@ -86,6 +88,7 @@ export default function Page() {
                   </div>
 
                   <AuthButton src={Google.src} provider="google" />
+                  <AuthButton src={Facebook.src} provider="facebook" />
                   <AuthButton src={Facebook.src} provider="facebook_business" />
                   <AuthButton src={Apple.src} provider="apple" />
                   <p className="text-sm leading-relaxed text-[#606060]">
