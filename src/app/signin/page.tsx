@@ -88,7 +88,7 @@ export default function Page() {
                   </div>
 
                   <AuthButton src={Google.src} provider="google" />
-                  <AuthButton src={Facebook.src} provider="facebook" />
+                  {/* <AuthButton src={Facebook.src} provider="facebook" /> */}
                   <AuthButton src={Facebook.src} provider="facebook_business" />
                   <AuthButton src={Apple.src} provider="apple" />
                   <p className="text-sm leading-relaxed text-[#606060]">

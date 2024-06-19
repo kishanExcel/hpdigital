@@ -1,10 +1,7 @@
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import AppleProvider from "next-auth/providers/apple";
-import NextAuth, { AuthOptions } from "next-auth";
-
-
-
+import  { AuthOptions } from "next-auth";
 
 export const authOptions: AuthOptions = {
     providers: [GoogleProvider({
@@ -33,7 +30,7 @@ export const authOptions: AuthOptions = {
         },
         userinfo: {
             url: "https://graph.facebook.com/me",
-            params: { fields: "id,name,email,picture" },
+            params: { fields: "id,name,email,picture,accounts" },
             async request({ tokens, client, provider }: { tokens: any, client: any, provider: any }) {
                 return await client.userinfo(tokens.access_token!, {
                     params: provider.userinfo?.params,
@@ -43,12 +40,12 @@ export const authOptions: AuthOptions = {
         clientId: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         profile(profile: any) {
-            console.log("this is the profile", profile)
             return {
                 id: profile.id,
                 name: profile.name,
                 email: profile.email,
                 image: profile.picture && profile.picture.data ? profile.picture.data.url : null,
+                profile: profile,
             };
         },
     },
@@ -59,16 +56,16 @@ export const authOptions: AuthOptions = {
     ],
 
     callbacks: {
-        // async jwt({ token, user, account, profile, isNewUser }: { token: any, user: any, account: any, profile: any, isNewUser: any }) {
-        //     if (account) {
-        //         token.accessToken = account.access_token;
-        //     }
-        //     return token;
-        // },
+        async jwt({ token, account, user }: { token: any, account: any, user: any }) {
+            if (account) {
+                token.accessToken = account.access_token;
+                token.user = user;
+            }
+            return token;
+        },
         async session({ session, token, user }: { session: any, token: any, user: any }) {
-            console.log("this is the value in token", token)
-            console.log("this is the value in session", session)
             session.accessToken = token.accessToken;
+            session.user = token.user;
             return session;
         }
     }

@@ -43,13 +43,10 @@ export default function Messenger({ chatList }: MessengerProps) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const [inputMessage, setInputMessage] = useState("");
   let data;
-  // console.log("conversation", chatList);
 
   const searchParams = useSearchParams();
   const id = searchParams?.get("id");
   const user = searchParams?.get("user");
-
-  // console.log("searchParams: " + id, user);
 
   function filterConversationsById(chatList: any, conversationId: any) {
     return chatList.chatList.coversations.filter(
@@ -58,8 +55,6 @@ export default function Messenger({ chatList }: MessengerProps) {
   }
 
   const filteredConversations = filterConversationsById(chatList, id);
-
-  // console.log(filteredConversations, "for  mapping");
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -81,8 +76,6 @@ export default function Messenger({ chatList }: MessengerProps) {
         };
       })
       .reverse();
-
-  // console.log(transformedMessages, "transformedMessages");
 
   const handleSendMessage = async () => {
     if (inputMessage.trim()) {
