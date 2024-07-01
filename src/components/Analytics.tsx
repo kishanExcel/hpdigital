@@ -25,12 +25,10 @@ interface AnalyticsProps {
 }
 
 export default function Analytics({ data }: AnalyticsProps) {
-  console.log("this is the data", data);
   useEffect(() => {
     if (data && data?.accounts) {
       const token = data?.accounts?.data[0]?.access_token;
       sessionStorage.setItem("access_token", token);
-      console.log("Token set in session storage:", token);
     }
   }, [data]);
   return (

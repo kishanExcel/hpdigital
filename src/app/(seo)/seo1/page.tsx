@@ -25,34 +25,51 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function Page() {
+export default function CheckIns() {
   return (
     <>
       <div className="flex w-full justify-center">
-        <div className="pb-2 w-full md:w-[1280px] bg-[#F4F4F4] ">
+        <div className="pb-2 w-full bg-[#F4F4F4] ">
           <div className="flex w-full px-2">
-            <div className="w-[60%] md:w-full md:px-8 px-0  pt-2 pl-2 flex flex-col gap-2">
-              <div className="text-[#6D6D6D] text-2xl md:text-3xl font-semibold">
-                Check-Ins
+            <div className="w-[60%] md:w-full md:px-8 px-0  pt-2 flex flex-col gap-2">
+              <div className="md:flex hidden w-1/4 relative my-8 px-2">
+                <div className="absolute md:left-5 left-6 top-[10px] ">
+                  <button>
+                    <Search color="#BCBCBC" size={16} />
+                  </button>
+                </div>
+                <Input
+                  className="rounded-full border-2 .placeholder:text-[#BCBCBC] pl-10"
+                  placeholder="Search"
+                  type="search"
+                />
               </div>
               <DatePickerWithRange className="w-full" />
+              <div className="flex border w-1/2 md:hidden rounded-full justify-between">
+                <div className="px-2 text-[#631363] bg-white rounded-tl-full rounded-bl-full">
+                  City
+                </div>
+                <div className="px-2 bg-[#631363] text-white rounded-tr-full rounded-br-full">
+                  Employee
+                </div>
+              </div>
             </div>
-            <div className="flex pl-6 gap-2 pt-4  md:px-8 px-0 flex-col">
+            <div className="flex md:flex-row-reverse pl-6 gap-2 pt-4  md:px-8 px-0 flex-col">
               <Button
                 variant="outline"
-                className="bg-[#631363] w-28 h-8 md:h-11 md:w-32 pb-3 text-white">
+                className="bg-[#631363] w-28 h-8  md:w-32 pb-3 text-white">
                 {" "}
                 Create Check-in{" "}
               </Button>
               <Button
                 variant="outline"
-                className="bg-[#40F440] w-28 pb-3 h-8 md:h-11 md:w-32  text-[#3D3D3D]">
+                className="bg-[#40F440] w-28 pb-3 h-8 md:w-32  text-[#3D3D3D]">
                 Request Review
               </Button>
             </div>
           </div>
           <div className="pl-4 flex gap-2 md:px-10 px-0  items-center pt-4">
-            <div>Show</div>
+            <div className="text-[#6D6D6D]">Show</div>
             <Select>
               <SelectTrigger className="w-[60px] bg-white rounded-full border">
                 <SelectValue placeholder="10" />
@@ -63,8 +80,8 @@ export default function Page() {
                 <SelectItem value="system">30</SelectItem>
               </SelectContent>
             </Select>
-            <div>Enteries</div>
-            <div className="flex relative px-2">
+            <div className="text-[#6D6D6D]">Enteries</div>
+            <div className="flex md:hidden relative px-2">
               <div className="absolute md:left-5 left-6 top-[10px] ">
                 <button>
                   <Search color="#BCBCBC" size={16} />
@@ -84,16 +101,16 @@ export default function Page() {
                   Employee
                 </TableHead>
                 <TableHead className="bg-[#631363] font-normal text-nowrap text-white ">
-                  Total Rating
+                  Check-Ins
+                </TableHead>
+                <TableHead className="bg-[#631363] font-normal text-white ">
+                  Review Requests
+                </TableHead>
+                <TableHead className="bg-[#631363] font-normal text-white ">
+                  Completed Reviews
                 </TableHead>
                 <TableHead className="bg-[#631363] font-normal text-white ">
                   Average
-                </TableHead>
-                <TableHead className="bg-[#631363] font-normal text-white ">
-                  Requested
-                </TableHead>
-                <TableHead className="bg-[#631363] font-normal text-white ">
-                  Completed
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -149,6 +166,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <div></div>
       <Image
         height={0}
         width={0}

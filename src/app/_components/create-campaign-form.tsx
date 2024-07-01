@@ -1,9 +1,13 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +29,31 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
+  const { data: session, status } = useSession();
+  const [adAccounts, setAdAccounts] = useState("");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const adId = searchParams?.get("adId");
+
+  async function getAdAccounts() {
+    try {
+      const response = await axios.get("https://graph.facebook.com/v20.0/me", {
+        params: {
+          fields: "adaccounts",
+          access_token: (session as any).accessToken,
+        },
+      });
+
+      const adAccounts = response.data.adaccounts.data;
+      setAdAccounts(adAccounts[0]);
+      return adAccounts;
+    } catch (error) {
+      console.error("Failed to fetch ad accounts:", error);
+      throw error;
+    }
+  }
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,9 +65,13 @@ export default function ProfileForm() {
     },
   });
 
+  useEffect(() => {
+    getAdAccounts();
+  }, []);
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     const payload = {
-      ad_account_id: "433913099432932", // put your own ad_account_id //
+      ad_account_id: adId,
       buying_type: values.buying,
       name: values.adname,
       objective: values.objective,
@@ -49,15 +82,22 @@ export default function ProfileForm() {
           ? "NONE"
           : [values.special_ad_categories],
     };
-
     axios
-      .post("http://116.202.210.102:3005/api/v1/campaign", payload, {
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAGE_TOKEN}`,
-        },
-      })
+      .post(
+        `https://graph.facebook.com/v20.0/act_${
+          payload?.ad_account_id
+        }/campaigns?effective_status=${payload.status}&name=${
+          payload.name
+        }&objective=${payload.objective}&special_ad_categories=${
+          payload.special_ad_categories
+        }&access_token=${(session as any).accessToken}`
+      )
       .then((response) => {
-        console.log("API Response:", response);
+        if (response) {
+          router.push("/analytics");
+        } else {
+          console.error("API response does not contain an id:", response);
+        }
       })
       .catch((error) => {
         console.error("API Error:", error);
@@ -65,7 +105,7 @@ export default function ProfileForm() {
   }
 
   return (
-    <div className="p-2">
+    <div className="p-4">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -88,7 +128,7 @@ export default function ProfileForm() {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Messenger_ad_campaign_name" {...field} />
+                  <Input placeholder="Summer_Sale_2024_Promo" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -1,7 +1,7 @@
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import AppleProvider from "next-auth/providers/apple";
-import  { AuthOptions } from "next-auth";
+import { AuthOptions } from "next-auth";
 
 export const authOptions: AuthOptions = {
     providers: [GoogleProvider({
@@ -43,7 +43,6 @@ export const authOptions: AuthOptions = {
             return {
                 id: profile.id,
                 name: profile.name,
-                email: profile.email,
                 image: profile.picture && profile.picture.data ? profile.picture.data.url : null,
                 profile: profile,
             };

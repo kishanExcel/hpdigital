@@ -10,24 +10,24 @@ import {
 import Image from "next/image";
 import Screen from "../../../assets/images/BottomScreen.png";
 
-export default function Page() {
+export default function LocalListings() {
   return (
     <>
       <div className="mb-6 w-full flex justify-center">
-        <div className="md:max-w-[1280px] w-full  bg-[#F4F4F4]">
+        <div className="w-full  bg-[#F4F4F4]">
           <div className="flex w-full px-2">
-            <div className="w-full pt-2 pl-2 flex flex-col gap-2">
-              <div className="text-[#6D6D6D] text-2xl font-semibold py-4 pl-4">
+            <div className="w-full pt-2 md:px-10 md:py-4 flex flex-col gap-2">
+              <div className="text-[#6D6D6D] md:hidden text-2xl font-semibold py-4 pl-4">
                 Local Listings
               </div>
-              <div className="flex justify-between text-white w-full gap-2 md:gap-8 overflow-hidden ">
+              <div className="flex justify-between text-white w-full md:w-1/3 gap-2 md:gap-8 overflow-hidden ">
                 <div className="h-20 relative w-full  rounded-xl border flex flex-col justify-evenly">
                   <div className="bg-gradient-to-b from-[#00914C] via-[#00A550] to-[#64C08A] rounded-xl border flex flex-col justify-evenly  w-full h-full">
-                    <div className="font-semibold text-2xl text-center mb-4">
+                    <div className="font-bold text-2xl text-center mb-4">
                       131
                     </div>
                   </div>
-                  <button className=" w-full rounded-xl bg-gradient-to-b from-[#00914C] via-[#00A550] to-[#64C08A] absolute bottom-0">
+                  <button className=" w-full font-bold rounded-xl bg-gradient-to-b from-[#00914C] via-[#00A550] to-[#64C08A] absolute bottom-0">
                     {" "}
                     Good
                   </button>
@@ -35,31 +35,31 @@ export default function Page() {
 
                 <div className="h-20 relative w-full  rounded-xl border flex flex-col justify-evenly">
                   <div className="bg-gradient-to-b from-[#FAAC18] via-[#FFCA05] to-[#FFE7A3] rounded-xl border flex flex-col justify-evenly  w-full h-full">
-                    <div className="font-semibold text-2xl text-center mb-4">
-                      131
+                    <div className="font-bold text-2xl text-center mb-4">
+                      180
                     </div>
                   </div>
-                  <button className=" w-full rounded-xl bg-gradient-to-b from-[#FAAC18] via-[#FFCA05] to-[#FFE7A3]  absolute bottom-0">
+                  <button className=" w-full font-bold rounded-xl bg-gradient-to-b from-[#FAAC18] via-[#FFCA05] to-[#FFE7A3]  absolute bottom-0">
                     {" "}
-                    Good
+                    Incorrect
                   </button>
                 </div>
 
                 <div className="h-20 relative w-full  rounded-xl border flex flex-col justify-evenly">
                   <div className="bg-gradient-to-b from-[#CF232A] via-[#EC1C24] to-[#F37E5F] rounded-xl border flex flex-col justify-evenly  w-full h-full">
-                    <div className="font-semibold text-2xl text-center mb-4">
-                      131
+                    <div className="font-bold text-2xl text-center mb-4">
+                      97
                     </div>
                   </div>
-                  <button className=" w-full rounded-xl  bg-gradient-to-b from-[#CF232A] via-[#EC1C24] to-[#F37E5F]  absolute bottom-0">
+                  <button className=" w-full rounded-xl font-bold bg-gradient-to-b from-[#CF232A] via-[#EC1C24] to-[#F37E5F]  absolute bottom-0">
                     {" "}
-                    Good
+                    Doesn&apos;t exist
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <Table className="my-4">
+          <Table className="my-4 md:mx-6">
             <TableHeader>
               <TableRow>
                 <TableHead className=" text-[#631363] w-[240px]">

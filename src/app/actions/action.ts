@@ -2,7 +2,6 @@
 "use server"
 import axios from 'axios';
 export async function getConversations(id: any, token: any) {
-    // handle using server actions
     try {
         const response = await axios.get(`${process.env.NEXTAUTH_BASEURL}/api/v1/coversation?pageId=${id}`, {
             headers: {
@@ -25,10 +24,7 @@ export async function getConversations(id: any, token: any) {
     } catch (error) {
         if (axios.isAxiosError(error)) {
             if (error.response) {
-
-                console.error('Error data:', error.response.data);
-                console.error('Error status:', error.response.status);
-                console.error('Error headers:', error.response.headers);
+             console.error('Error data:', error.response.data);
             } else if (error.request) {
                 console.error('Error request:', error.request);
             } else {
@@ -40,3 +36,5 @@ export async function getConversations(id: any, token: any) {
         }
     }
 }
+
+

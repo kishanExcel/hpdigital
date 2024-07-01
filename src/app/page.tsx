@@ -1,9 +1,11 @@
-import { useSession } from "next-auth/react";
-
-export default async function Page() {
+import Navbar from "./_components/Header";
+export default function Component() {
   return (
-    <>
-      <div className="text-3xl font-bold ">Home Page</div>
-    </>
+    <div>
+      <div>
+        <Navbar />
+      </div>
+      Home Page
+    </div>
   );
 }

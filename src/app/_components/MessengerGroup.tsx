@@ -11,6 +11,7 @@ export default function MessengerGroup() {
   const searchParams = useSearchParams();
   const { data: session, status } = useSession({ required: true });
   const [chatList, setChatList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const pageId = searchParams?.get("pageId");
   console.log("pageID from searchParams", pageId);
@@ -25,6 +26,7 @@ export default function MessengerGroup() {
         const fetchConversations = async () => {
           const conversations = await getConversations(pageId, token);
           setChatList(conversations);
+          setIsLoading(false);
         };
         fetchConversations();
       }
@@ -33,7 +35,7 @@ export default function MessengerGroup() {
 
   return (
     <div>
-      <MessengerHeader chatList={chatList} />
+      <MessengerHeader loading={isLoading} chatList={chatList} />
     </div>
   );
 }

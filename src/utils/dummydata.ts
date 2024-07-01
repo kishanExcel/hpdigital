@@ -76,6 +76,7 @@ import td5 from "../assets/images/marketing/facebook.png"
 import td6 from "../assets/images/marketing/Untitled (3).png"
 import td7 from "../assets/images/marketing/google.png"
 import td8 from "../assets/images/marketing/new4.png"
+import td9 from "../assets/images/marketing/DataBase.png"
 
 export const organic = [
     {
@@ -106,7 +107,7 @@ export const organic = [
         "messages": 653
     }
 ]
-export const graphUi = [
+export const graphUi1 = [
     {
         img: td6,
         "name": "New Leads 1",
@@ -130,6 +131,16 @@ export const graphUi = [
         "comments": 917,
     }
 ]
+export const graphUi2 = [
+    {
+        img: td9,
+        "name": "Friday 20% Off",
+        "posts": 5000,
+        "likes": 536,
+        "comments": 317,
+
+    },
+]
 export const follows = [
     {
         "name": "Facebook Lead 1 Follow Up",
@@ -139,7 +150,7 @@ export const follows = [
         "replied": 13,
         "reply": "10%",
         "status": "Published"
-    },  
+    },
     {
         "name": "Free Estimates 1",
         "total": 23,

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Screen from "../../../assets/images/BottomScreen.png";
 import { useState } from "react";
 import GroupTab from "@/app/_components/grouptabs-tabbar";
-import { MessageCircleMore, Phone, Plus } from "lucide-react";
+import { MessageCircleMore, Phone, Plus, Send } from "lucide-react";
 
 export default function Page() {
   const [expanded, setExpanded] = useState(null);
@@ -97,30 +97,35 @@ export default function Page() {
             </Button>
             {expanded === "reply" && (
               <div className="flex gap-2 border rounded-xl  justify-start  px-4 pb-10">
-                <div className="">
+                <div className="w-full">
                   {" "}
                   <Button
-                    className="flex relative bg-white border-0  rounded-tl-md rounded-br-none rounded-bl-none mt-2 w-10 flex-col justify-start items-start"
+                    className={`flex relative border-0 rounded-tl-md rounded-br-none rounded-bl-none mt-2 w-10 flex-col justify-start items-start ${
+                      message === "messages" ? "bg-white" : "bg-[#E0E0E0]"
+                    }`}
                     onClick={() => handleSetMessage("messages")}>
                     {" "}
-                    <div className="absolute top-1 right-2">
+                    <div className="absolute top-3 right-2">
                       <MessageCircleMore color="#6D6D6D" />
                     </div>
+                    <div className=" pt-1 ml-8  h-fit ">
+                      {" "}
+                      <Phone color="#6D6D6D" />
+                    </div>
                   </Button>
-                  {/* {message === "messages" && (
-                    <div className="">
+                  {message === "messages" && (
+                    <div className="w-full">
                       <textarea
                         name="message"
                         id="message"
+                        rows={4}
+                        value={"Jessica Thank you for the message."}
+                        className="p-4 w-full  rounded-tr-xl rounded-br-xl rounded-bl-xl outline-none"
                         placeholder="Jessica Thank you for the message.">
                         {" "}
                       </textarea>
                     </div>
-                  )} */}
-                </div>
-                <div className="pt-2">
-                  {" "}
-                  <Phone color="#6D6D6D" />
+                  )}
                 </div>
               </div>
             )}
